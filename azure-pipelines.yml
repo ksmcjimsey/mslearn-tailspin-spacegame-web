@@ -21,6 +21,7 @@ variables:
 # Changed all the lines below
 steps:
 
+# This command specifies the version needed to use on the build agent.
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
@@ -39,6 +40,7 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
+# calls command echo and echos out build in variable values.
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
